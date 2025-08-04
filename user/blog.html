@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Great+Vibes&display=swap" rel="stylesheet">
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+       <style>
+
+        :root {
+    --primary-pink: #F8E5EB; /* Pastel Pink */
+    --secondary-rose-gold: #E8B4B8; /* Muted Rose Gold */
+    --accent-gold: #FFD700; /* Golden for accents */
+    --text-dark: #333;
+    --text-light: #fff;
+    --blur-strength: 10px; /* For navbar blur */
+}
+* {
+    margin: 0;
+    padding: 0;
+   
+}
+body {
+     font-family: 'Poppins', sans-serif; 
+    line-height: 1.6;
+    color: var(--text-dark);
+    background-color: #fff;
+    overflow-x: hidden; /* **CRUCIAL FIX FOR DOUBLE SCROLLBAR** - Hides horizontal scroll */
+    min-height: 100vh; /* Ensure body takes full height for scroll animations */
+}
+
+        /* navbar */
+
+
+.navbar,
+.menu {
+    position: relative;
+    z-index: 1000;
+    background-color: white; /* Optional: ensures text is readable over banner */
+}
+
+/* FIX 2: Style the dropdown properly */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    min-width: 200px;
+    display: none;
+    flex-direction: column;
+    z-index: 2000; /* HIGH value to appear above everything */
+}
+
+.dropdown-content.show {
+    display: flex;
+}
+
+/* Optional: Smooth animation on dropdown */
+.dropdown-content a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    background-color: white;
+    transition: background 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #f2f2f2;
+}
+ .navbar {
+      backdrop-filter: blur(12px);
+      background-color: rgba(255, 255, 255, 0.5);
+      padding: 40px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      /* border-bottom: 1px solid #ddd; */
+    }
+
+    .navbar .left,
+    .navbar .center,
+    .navbar .right {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar .center {
+      flex: 1;
+      justify-content: center;
+    }
+
+    .navbar input[type="text"] {
+      padding: 6px 10px;
+      border-radius: 20px;
+       border: 1px solid #ccc; 
+      outline: none;
+      width: 180px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #E8B4B8;
+      font-family: Cinzel Decorative ;
+    }
+
+    .navbar .right i {
+      font-size: 20px;
+      margin-left: 20px;
+      cursor: pointer;
+      color: #333;
+      
+    }
+
+    /* Below logo menu */
+    .menu {
+      background-color: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      /* padding: 0 0; */
+      display: flex;
+     
+      justify-content: center;
+      gap: 40px;
+      /* border-bottom: 1px solid #ddd; */
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      position: relative;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: lighter;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+       top: 100%;
+      left: 0; 
+      background-color: white;
+      min-width: 160px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+      border-radius: 5px;
+      z-index: 1000;
+      flex-direction: column;
+    }
+
+    .dropdown-content a {
+      padding: 10px 15px;
+      display: block;
+      color: #333;
+    }
+    
+
+     .dropdown:hover .dropdown-content {
+      display: block;
+    } 
+
+     .dropdown-content a:hover {
+      background-color: #f0f0f0;
+    } 
+
+    .dropdown-content.show {
+    display: flex;
+}
+
+    /* === SIDE SEARCH PANEL === */
+
+
+
+.search-panel {
+  position: fixed;
+  top: 80px; /* ✅ yahan px likhna zaroori tha */
+  right: 0;
+  width: 300px;
+  height: calc(100vh - 110px);
+  background-color: white;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  padding: 30px 20px; /* ✅ restored */
+  z-index: 2000;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.search-panel.active {
+  transform: translateX(0);
+}
+
+
+.search-panel input {
+  padding: 10px 15px;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.search-panel button {
+  padding: 10px;
+  border: none;
+  border-radius: 30px;
+  background-color: #e8b4b8;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.search-panel .close-btn {
+  font-size: 26px;
+  position: absolute;
+  top: 30px;
+  right: 28px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .navbar .center {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .navbar .left,
+  .navbar .right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    position: relative;
+    z-index: 999;
+
+  }
+
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    display: none;
+  }
+
+  .dropdown.open .dropdown-content {
+    display: block;
+  }
+
+  .search-panel {
+    width: 100vw;
+    height: calc(100vh - 70px);
+    top: 70px;
+  }
+}
+
+        /* ===== BLOG PAGE STYLES ===== */
+        .blog-hero {
+            height: 60vh;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('https://images.unsplash.com/photo-1483985988355-763728e1935b?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .blog-hero-content {
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .blog-hero h1 {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 4rem;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease forwards;
+        }
+
+        .blog-hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            animation: fadeIn 1s ease 0.5s forwards;
+            opacity: 0;
+        }
+
+        .blog-container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 80px 0;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 2.8rem;
+            color: #E8B4B8;
+            margin-bottom: 15px;
+        }
+
+        .section-subtitle {
+            font-size: 1.2rem;
+            color: #777;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .blog-card:nth-child(1) { animation: fadeInUp 1s ease 0.3s forwards; }
+        .blog-card:nth-child(2) { animation: fadeInUp 1s ease 0.6s forwards; }
+        .blog-card:nth-child(3) { animation: fadeInUp 1s ease 0.9s forwards; }
+        .blog-card:nth-child(4) { animation: fadeInUp 1s ease 1.2s forwards; }
+        .blog-card:nth-child(5) { animation: fadeInUp 1s ease 1.5s forwards; }
+        .blog-card:nth-child(6) { animation: fadeInUp 1s ease 1.8s forwards; }
+
+        .blog-card:hover {
+            transform: translateY(-10px) !important;
+            box-shadow: 0 15px 40px rgba(232,180,184,0.2);
+        }
+
+        .blog-image {
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .blog-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-card:hover .blog-image img {
+            transform: scale(1.1);
+        }
+
+        .blog-content {
+            padding: 25px;
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+            color: #E8B4B8;
+        }
+
+        .blog-category {
+            background: rgba(232,180,184,0.1);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+        }
+
+        .blog-date {
+            margin-left: 15px;
+        }
+
+        .blog-title {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: #333;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+        }
+
+        .blog-excerpt {
+            color: #666;
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+
+        .read-more {
+            display: inline-flex;
+            align-items: center;
+            color: #E8B4B8;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .read-more i {
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .read-more:hover {
+            color: #d89ca3;
+        }
+
+        .read-more:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Featured Post */
+        .featured-post {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 80px;
+            align-items: center;
+        }
+
+        .featured-image {
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+        }
+
+        .featured-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .featured-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: #E8B4B8;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .featured-content {
+            position: relative;
+        }
+
+        /* Categories */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin: 60px 0;
+        }
+
+        .category-card {
+            height: 200px;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            transition: all 0.4s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
+
+        .category-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+        }
+
+        /* Pagination */
+        .pagination {
+            display: flex;
+            justify-content: center;
+            margin-top: 60px;
+            gap: 10px;
+        }
+
+        .pagination a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: white;
+            color: #333;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .pagination a:hover, .pagination a.active {
+            background: #E8B4B8;
+            color: white;
+        }
+
+        /* Newsletter */
+        .newsletter {
+            background: linear-gradient(135deg, #E8B4B8, #d89ca3);
+            padding: 80px 0;
+            text-align: center;
+            color: white;
+            margin-top: 80px;
+        }
+
+        .newsletter-container {
+            width: 90%;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .newsletter h2 {
+            font-family: 'Cinzel Decorative', cursive;
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+
+        .newsletter p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+
+        .newsletter-form {
+            display: flex;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .newsletter-form input {
+            flex: 1;
+            padding: 15px 20px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            font-size: 1rem;
+        }
+
+        .newsletter-form button {
+            padding: 0 30px;
+            background: #3A3845;
+            color: white;
+            border: none;
+            border-radius: 0 30px 30px 0;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background: #2a2832;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .featured-post {
+                grid-template-columns: 1fr;
+            }
+            
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .blog-hero h1 {
+                font-size: 3rem;
+            }
+            
+            .blog-hero p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2.4rem;
+            }
+            
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .newsletter-form {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .newsletter-form input,
+            .newsletter-form button {
+                border-radius: 30px;
+                width: 100%;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .blog-hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+   /* --- Footer --- */
+.site-footer {
+  background-color: #4a4a4a;
+     color: #E8B4B8; 
+    /* color: #E8B4B8; */
+    padding: 50px 20px 20px;
+    font-size: 0.95em;
+
+}
+ h3{
+    color: #e8b4b8;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.site-footer .footer-content {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    flex-wrap: wrap;
+}
+
+.site-footer .footer-logo {
+     font-family: 'Playfair Display', serif; 
+    font-size: 2em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    flex-basis: 100%; /* Take full width on smaller screens */
+    text-align: center;
+    margin-bottom: 20px;
+     font-size: 28px;
+      font-weight: bold;
+      color: #E8B4B8;
+}
+
+/* .site-footer h3 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: var(--secondary-rose-gold);
+} */
+
+.site-footer ul li {
+    margin-bottom: 8px;
+    list-style: none;
+   
+    
+}
+
+.site-footer ul li a {
+    transition: color 0.3s ease;
+    color: #f8f8f8;
+    text-decoration: none;
+}
+
+.site-footer ul li a:hover {
+    color: #ffd700;
+}
+
+.footer-social a {
+    margin-right: 15px;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+    color: #f8f8f8;
+}
+
+.footer-social a:hover {
+    color: #ffd700;
+}
+
+.site-footer .footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.85em;
+    color: #aaa;
+}
+
+
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 6px;
+    background: var(--primary-color);
+    width: 0%;
+    z-index: 1030;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.chatbot-icon {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #e6c200;
+    color: var(--text-dark);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8em;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    z-index: 1000;
+}
+
+.chatbot-icon:hover {
+    transform: scale(1.1);
+    background-color: #e6c200;
+}
+
+ .user-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Button/Icon */
+    .user-icon {
+      font-size: 20px;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 50%;
+      transition: background 0.3s;
+      background: #f8f8f8;
+    }
+
+    .user-icon:hover {
+      background-color: #e4e4e4;
+    }
+
+    /* Dropdown menu */
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%; /* Below the icon */
+      right: 0;
+      background-color: white;
+      min-width: 160px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+      border-radius: 6px;
+      z-index: 100;
+    }
+
+    .dropdown-menu a {
+      color: #333;
+      padding: 10px 15px;
+      text-decoration: none;
+      display: block;
+      font-size: 14px;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #f2f2f2;
+    }
+
+    /* Show dropdown on hover of whole container */
+    .user-dropdown:hover .dropdown-menu {
+      display: block;
+    }
+
+
+       </style>
+</head>
+<body>
+      <script>
+
+
+function toggleDropdown(e) {
+    e.preventDefault();
+    const dropdown = e.target.closest('.dropdown');
+    dropdown.querySelector('.dropdown-content').classList.toggle('show');
+  }
+
+  // Close dropdown if clicked outside
+  window.onclick = function(e) {
+    if (!e.target.matches('.dropdown > a') && !e.target.closest('.dropdown-content')) {
+      const dropdowns = document.querySelectorAll('.dropdown-content');
+      dropdowns.forEach(dropdown => {
+        dropdown.classList.remove('show');
+      });
+    }
+  }
+
+  function toggleSearchPanel() {
+    document.getElementById("search-panel").classList.toggle("active");
+  }
+
+
+
+  
+</script>
+     <!-- Top Navbar -->
+<div class="navbar">
+  <div class="left">
+    <i class="fa-solid fa-magnifying-glass search-icon" onclick="toggleSearchPanel()"></i>
+  </div>
+  
+  <div class="center">
+    <div class="logo">Auranest</div>
+  </div>
+  <div class="user-dropdown">
+    <i class="fa-solid fa-user user-icon"></i>
+    <div class="dropdown-menu">
+      <a href="login.php">Login</a>
+      <a href="registration.php">Sign Up</a>
+      <a href="my_profile.php">My Profile</a>
+    </div>
+  </div>
+  <div class="right">
+   <a href="cart.php"> <i class="fa-solid fa-cart-shopping"></i></a>
+  </div>
+</div>
+
+<div id="search-panel" class="search-panel">
+  <span class="close-btn" onclick="toggleSearchPanel()">×</span>
+  <input type="text" placeholder="Search Products...">
+  <button type="submit">Search</button>
+</div>
+
+<!-- Pages under logo -->
+<div class="menu">
+  <a href="index.php">Home</a>
+  <div class="dropdown">
+    <a href="#" onclick="toggleDropdown(event)">Categories <i class="fa-solid fa-caret-down fa-2xs"></i></a>
+    <div class="dropdown-content">
+      <a href="jewllery.html">Jeweleries</a>
+      <a href="beauty.html">Beauty Essentials</a>
+    </div>
+  </div>
+  <a href="blog.html">About Us</a>
+  <a href="about.html">Blog</a>
+  <a href="beauty.html#contact">Contact Us</a>
+</div>
+
+
+
+ <!-- Blog Page Content -->
+    <section class="blog-hero">
+        <div class="blog-hero-content">
+            <h1>Beauty & Jewelry Journal</h1>
+            <p>Discover the latest trends, tips, and stories from our experts</p>
+        </div>
+    </section>
+
+    <div class="blog-container">
+        <!-- Featured Post -->
+        <div class="featured-post">
+            <div class="featured-image">
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=730&q=80" alt="Featured Post">
+                <div class="featured-badge">Featured</div>
+            </div>
+            <div class="featured-content">
+                <div class="blog-meta">
+                    <span class="blog-category">Makeup Trends</span>
+                    <span class="blog-date">June 15, 2023</span>
+                </div>
+                <h2 class="blog-title">Summer 2023: The Hottest Makeup Looks</h2>
+                <p class="blog-excerpt">Discover the makeup trends dominating this summer season, from dewy skin to bold metallic accents. Our lead artist breaks down how to achieve each look with our curated product selection.</p>
+                <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+
+        <!-- Categories -->
+        <div class="section-header">
+            <h2 class="section-title">Explore Categories</h2>
+            <p class="section-subtitle">Find articles that match your interests</p>
+        </div>
+
+        <div class="category-grid">
+            <div class="category-card" style="background: url('https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover;">
+                Makeup Artistry
+            </div>
+            <div class="category-card" style="background: url('https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover;">
+                Jewelry Guides
+            </div>
+            <div class="category-card" style="background: url('https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80') center/cover;">
+                Skincare Science
+            </div>
+        </div>
+
+        <!-- Blog Posts -->
+        <div class="section-header">
+            <h2 class="section-title">Latest Articles</h2>
+            <p class="section-subtitle">Fresh perspectives on beauty and jewelry</p>
+        </div>
+
+        <div class="blog-grid">
+            <!-- Post 1 -->
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="https://images.unsplash.com/photo-1605106702734-205df224ecce?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Blog Post">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-category">Jewelry Care</span>
+                        <span class="blog-date">May 28, 2023</span>
+                    </div>
+                    <h3 class="blog-title">How to Properly Clean Your Gold Jewelry</h3>
+                    <p class="blog-excerpt">Learn professional techniques to maintain the shine and longevity of your gold pieces without damaging them.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Post 2 -->
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="https://images.unsplash.com/photo-1596462502278-27bfdc403348?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Blog Post">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-category">Beauty Tips</span>
+                        <span class="blog-date">May 15, 2023</span>
+                    </div>
+                    <h3 class="blog-title">The Perfect Base: Foundation Matching Guide</h3>
+                    <p class="blog-excerpt">Our comprehensive guide to finding your ideal foundation match for flawless, natural-looking coverage.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Post 3 -->
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Blog Post">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-category">Trends</span>
+                        <span class="blog-date">April 30, 2023</span>
+                    </div>
+                    <h3 class="blog-title">Emerging Jewelry Trends for Wedding Season</h3>
+                    <p class="blog-excerpt">Discover the jewelry styles that will dominate this wedding season, from statement necklaces to delicate arm cuffs.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Post 4 -->
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" alt="Blog Post">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-category">Skincare</span>
+                        <span class="blog-date">April 22, 2023</span>
+                    </div>
+                    <h3 class="blog-title">Nighttime Skincare Routine for Glowing Mornings</h3>
+                    <p class="blog-excerpt">Transform your skin while you sleep with our dermatologist-approved nighttime regimen using Auranest products.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Post 5 -->
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1887&q=80" alt="Blog Post">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-category">Makeup Tutorials</span>
+                        <span class="blog-date">April 10, 2023</span>
+                    </div>
+                    <h3 class="blog-title">Eyeshadow Blending: Pro Techniques Revealed</h3>
+                    <p class="blog-excerpt">Master the art of seamless eyeshadow blending with step-by-step instructions from our lead makeup artist.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+
+            <!-- Post 6 -->
+            <article class="blog-card">
+                <div class="blog-image">
+                    <img src="https://images.unsplash.com/photo-1602173574767-37ac01994b2a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=735&q=80" alt="Blog Post">
+                </div>
+                <div class="blog-content">
+                    <div class="blog-meta">
+                        <span class="blog-category">Jewelry History</span>
+                        <span class="blog-date">March 28, 2023</span>
+                    </div>
+                    <h3 class="blog-title">The Cultural Significance of Indian Kundan</h3>
+                    <p class="blog-excerpt">Explore the rich history and craftsmanship behind traditional Kundan jewelry and its modern interpretations.</p>
+                    <a href="#" class="read-more">Read More <i class="fas fa-arrow-right"></i></a>
+                </div>
+            </article>
+        </div>
+
+        <!-- Pagination -->
+        <div class="pagination">
+            <a href="#" class="active">1</a>
+            <a href="#">2</a>
+            <a href="#">3</a>
+            <a href="#"><i class="fas fa-chevron-right"></i></a>
+        </div>
+    </div>
+
+    <!-- Newsletter -->
+    <!-- <section class="newsletter">
+        <div class="newsletter-container">
+            <h2>Stay Updated</h2>
+            <p>Subscribe to receive beauty tips, jewelry care guides, and exclusive offers</p>
+            <form class="newsletter-form">
+                <input type="email" placeholder="Your email address">
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section> -->
+
+   <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-logo">AURANEST</div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Shop All</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Auranest. All rights reserved.</p>
+        </div>
+    </footer>
+    <div id="scroll-progress"></div>
+    <div class="chatbot-icon">
+        <i class="fas fa-comments"></i>
+    </div>
+    <script>
+        // Your EXACT Navbar JavaScript (unchanged)
+        function toggleSearchPanel() {
+            const panel = document.getElementById("search-panel");
+            panel.classList.toggle("active");
+
+            if (panel.classList.contains("active")) {
+                document.body.style.overflow = "hidden";
+            } else {
+                document.body.style.overflow = "";
+            }
+        }
+
+        // Blog Page JavaScript
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile dropdown functionality
+            const dropdowns = document.querySelectorAll('.dropdown > a');
+            
+            if (window.innerWidth <= 768) {
+                dropdowns.forEach(dropdown => {
+                    dropdown.addEventListener('click', function(e) {
+                        e.preventDefault();
+                        this.parentElement.classList.toggle('open');
+                    });
+                });
+            }
+
+            // Intersection Observer for scroll animations
+            const blogCards = document.querySelectorAll('.blog-card');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { 
+                threshold: 0.1,
+                rootMargin: '0px 0px -100px 0px'
+            });
+
+            blogCards.forEach(card => {
+                observer.observe(card);
+            });
+
+            // Blog card hover effects
+            blogCards.forEach(card => {
+                const img = card.querySelector('img');
+                const originalSrc = img.src;
+                
+                // Preload hover image if data-hover-src exists
+                if (card.dataset.hoverSrc) {
+                    const hoverImage = new Image();
+                    hoverImage.src = card.dataset.hoverSrc;
+                }
+
+                card.addEventListener('mouseenter', function() {
+                    if (this.dataset.hoverSrc) {
+                        img.src = this.dataset.hoverSrc;
+                    }
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    img.src = originalSrc;
+                });
+            });
+
+            // Category card hover effects
+            const categoryCards = document.querySelectorAll('.category-card');
+            categoryCards.forEach(card => {
+                card.addEventListener('mouseenter', function() {
+                    this.style.transform = 'translateY(-10px)';
+                    this.style.boxShadow = '0 15px 40px rgba(0,0,0,0.2)';
+                });
+
+                card.addEventListener('mouseleave', function() {
+                    this.style.transform = '';
+                    this.style.boxShadow = '';
+                });
+            });
+
+            // Make sure the search panel closes when clicking outside
+            document.addEventListener('click', function(event) {
+                const searchPanel = document.getElementById('search-panel');
+                const searchIcon = document.querySelector('.search-icon');
+                
+                if (searchPanel.classList.contains('active') && 
+                    !searchPanel.contains(event.target) && 
+                    event.target !== searchIcon) {
+                    searchPanel.classList.remove('active');
+                    document.body.style.overflow = "";
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

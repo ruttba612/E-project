@@ -1,0 +1,1943 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auranest - Exquisite Jewellery & Cosmetics</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Great+Vibes&display=swap" rel="stylesheet">
+
+    <style>
+
+        :root {
+    --primary-pink: #F8E5EB; /* Pastel Pink */
+    --secondary-rose-gold: #E8B4B8; /* Muted Rose Gold */
+    --accent-gold: #FFD700; /* Golden for accents */
+    --text-dark: #333;
+    --text-light: #fff;
+    --blur-strength: 10px; /* For navbar blur */
+}
+ 
+        body {
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f8f8f8;
+    overflow-x: hidden;
+}
+
+
+:root {
+    --primary-color: #E8B4B8;
+    --primary-dark: #D49BA0;
+    --dark-text: #4a4a4a;
+    --light-text: #f8f8f8;
+    --gradient-light: linear-gradient(135deg, #E8B4B8, #F0D0D4);
+    --gradient-dark: linear-gradient(135deg, #D49BA0, #E8B4B8);
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+
+
+    --button-gradient-start: #E8B4B8;
+    --button-gradient-end: #D49BA0;
+    --button-gradient-hover-start: #D49BA0;
+    --button-gradient-hover-end: #C0878C;
+}
+
+/* .navbar,
+.menu {
+    position: relative;
+    z-index: 1000;
+    background-color: white; /* Optional: ensures text is readable over banner 
+}
+
+/* FIX 2: Style the dropdown properly 
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    min-width: 200px;
+    display: none;
+    flex-direction: column;
+    z-index: 2000; /* HIGH value to appear above everything 
+}
+
+.dropdown-content.show {
+    display: flex;
+}
+
+/* Optional: Smooth animation on dropdown 
+.dropdown-content a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    background-color: white;
+    transition: background 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #f2f2f2;
+} */
+
+/* navbar */
+
+
+.navbar,
+.menu {
+    position: relative;
+    z-index: 1000;
+    background-color: white; /* Optional: ensures text is readable over banner */
+}
+
+/* FIX 2: Style the dropdown properly */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-content {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: white;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    min-width: 200px;
+    display: none;
+    flex-direction: column;
+    z-index: 2000; /* HIGH value to appear above everything */
+}
+
+.dropdown-content.show {
+    display: flex;
+}
+
+/* Optional: Smooth animation on dropdown */
+.dropdown-content a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: #333;
+    background-color: white;
+    transition: background 0.3s;
+}
+
+.dropdown-content a:hover {
+    background-color: #f2f2f2;
+}
+ .navbar {
+      backdrop-filter: blur(12px);
+      background-color: rgba(255, 255, 255, 0.5);
+      padding: 40px 20px;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      /* border-bottom: 1px solid #ddd; */
+    }
+
+    .navbar .left,
+    .navbar .center,
+    .navbar .right {
+      display: flex;
+      align-items: center;
+    }
+
+    .navbar .center {
+      flex: 1;
+      justify-content: center;
+    }
+
+    .navbar input[type="text"] {
+      padding: 6px 10px;
+      border-radius: 20px;
+       border: 1px solid #ccc; 
+      outline: none;
+      width: 180px;
+    }
+
+    .logo {
+      font-size: 28px;
+      font-weight: bold;
+      color: #E8B4B8;
+      font-family: Cinzel Decorative ;
+    }
+
+    .navbar .right i {
+      font-size: 20px;
+      margin-left: 20px;
+      cursor: pointer;
+      color: #333;
+      
+    }
+
+    /* Below logo menu */
+    .menu {
+      background-color: rgba(255, 255, 255, 0.4);
+      backdrop-filter: blur(10px);
+      /* padding: 0 0; */
+      display: flex;
+     
+      justify-content: center;
+      gap: 40px;
+      /* border-bottom: 1px solid #ddd; */
+    }
+
+    .menu a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      position: relative;
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: lighter;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+       top: 100%;
+      left: 0; 
+      background-color: white;
+      min-width: 160px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+      border-radius: 5px;
+      z-index: 1000;
+      flex-direction: column;
+    }
+
+    .dropdown-content a {
+      padding: 10px 15px;
+      display: block;
+      color: #333;
+    }
+    
+
+     .dropdown:hover .dropdown-content {
+      display: block;
+    } 
+
+     .dropdown-content a:hover {
+      background-color: #f0f0f0;
+    } 
+
+    .dropdown-content.show {
+    display: flex;
+}
+
+    /* === SIDE SEARCH PANEL === */
+
+
+
+.search-panel {
+  position: fixed;
+  top: 80px; /* ✅ yahan px likhna zaroori tha */
+  right: 0;
+  width: 300px;
+  height: calc(100vh - 110px);
+  background-color: white;
+  box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+  padding: 30px 20px; /* ✅ restored */
+  z-index: 2000;
+  transform: translateX(100%);
+  transition: transform 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.search-panel.active {
+  transform: translateX(0);
+}
+
+
+.search-panel input {
+  padding: 10px 15px;
+  border-radius: 30px;
+  border: 1px solid #ccc;
+  font-size: 16px;
+}
+
+.search-panel button {
+  padding: 10px;
+  border: none;
+  border-radius: 30px;
+  background-color: #e8b4b8;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.search-panel .close-btn {
+  font-size: 26px;
+  position: absolute;
+  top: 30px;
+  right: 28px;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .navbar .center {
+    justify-content: flex-start;
+    width: 100%;
+  }
+
+  .navbar .left,
+  .navbar .right {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+    position: relative;
+    z-index: 999;
+
+  }
+
+  .dropdown-content {
+    position: static;
+    box-shadow: none;
+    display: none;
+  }
+
+  .dropdown.open .dropdown-content {
+    display: block;
+  }
+
+  .search-panel {
+    width: 100vw;
+    height: calc(100vh - 70px);
+    top: 70px;
+  }
+}
+
+h1,
+h2,
+h4,
+h5,
+h6 {
+    font-family: 'Playfair Display', serif;
+    color: var(--dark-text);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.05);
+
+}
+
+.display-1 {
+    font-size: clamp(3rem, 8vw, 5.5rem);
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+}
+
+.display-4 {
+    font-size: clamp(2rem, 5vw, 3.5rem);
+}
+
+
+header {
+    background-color: rgba(255, 255, 255, 0.95);
+    box-shadow: 0 2px 15px var(--shadow-light);
+    transition: background-color 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    z-index: 1020;
+}
+
+header.scrolled {
+    background-color: rgba(255, 255, 255, 1);
+    box-shadow: 0 4px 20px var(--shadow-medium);
+}
+
+.auranest-logo {
+    filter: drop-shadow(0px 0px 5px rgba(0, 0, 0, 0.05));
+    transition: transform 0.3s ease;
+    max-height: 60px;
+    height: auto;
+    width: auto;
+}
+
+.auranest-logo:hover {
+    transform: scale(1.05);
+}
+
+.navbar-nav .nav-link {
+    color: var(--dark-text) !important;
+    font-weight: 500;
+    margin: 0 15px;
+    position: relative;
+    transition: all 0.3s ease;
+    padding: 8px 0;
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 3px;
+    background-color: var(--primary-color);
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: width 0.3s ease;
+    border-radius: 2px;
+}
+
+.navbar-nav .nav-link:hover::after,
+.navbar-nav .nav-link.active::after {
+    width: 100%;
+}
+
+.navbar-nav .nav-link:hover,
+.navbar-nav .nav-link.active {
+    color: var(--primary-color) !important;
+}
+
+.navbar-toggler {
+    border-color: var(--primary-color);
+    border-radius: 8px;
+    padding: 8px 12px;
+}
+
+.navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28232, 180, 184, 1%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+}
+
+
+.btn-primary {
+
+    background: linear-gradient(to right, var(--button-gradient-start), var(--button-gradient-end));
+    border: none;
+    color: white;
+    padding: 12px 30px;
+    border-radius: 50px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px var(--shadow-light);
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(to right, var(--button-gradient-hover-start), var(--button-gradient-hover-end));
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px var(--shadow-medium);
+}
+
+.btn-outline-dark {
+    background-color: transparent;
+    border: 2px solid var(--dark-text);
+    color: var(--dark-text);
+    padding: 8px 20px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.btn-outline-dark:hover {
+    background: linear-gradient(to right, var(--button-gradient-start), var(--button-gradient-end));
+    border-color: var(--button-gradient-end);
+    color: white;
+    transform: scale(1.05);
+}
+
+.btn-link {
+    color: var(--primary-color) !important;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.btn-link:hover {
+    color: var(--primary-dark) !important;
+    text-decoration: underline !important;
+    transform: translateX(5px);
+}
+
+
+section {
+    min-height: 100vh;
+     /* padding: 80px 0;  */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    
+    
+}
+
+
+.home-banner-section {
+    background: url('element5-digital-ceWgSMd8rvQ-unsplash.jpg') no-repeat center center/cover;
+    color: white;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+    
+}
+
+
+.home-banner-section::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgb(86 58 62), rgb(0 0 0 / 30%));
+    z-index: 0;
+}
+
+.home-banner-section .hero-content {
+    z-index: 1;
+}
+
+
+.product-card {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px var(--shadow-light);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.product-card:hover {
+    transform: translateY(-10px) rotateZ(-1deg);
+    box-shadow: 0 15px 35px var(--shadow-medium);
+}
+
+.product-image-wrapper {
+    position: relative;
+    overflow: hidden;
+    border-radius: 15px 15px 0 0;
+}
+
+.product-card img {
+    height: 280px;
+    width: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.08);
+}
+
+
+.sale-badge {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background-color: var(--primary-color);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    z-index: 10;
+}
+
+
+.quick-view-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    z-index: 10;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.product-card:hover .quick-view-btn {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-10px);
+}
+
+
+.product-sku {
+    font-size: 0.9rem;
+    color: #888;
+}
+
+.reviews-count {
+    font-size: 0.9rem;
+    color: #777;
+    margin-left: 5px;
+}
+
+
+.wishlist-btn {
+    color: #888 !important;
+    font-size: 1.2rem;
+    padding: 0 8px;
+    transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+}
+
+.wishlist-btn:hover {
+    color: var(--primary-color) !important;
+}
+
+.wishlist-btn .discount-percent {
+    background-color: #dc3545;
+    color: white;
+    padding: 2px 6px;
+    border-radius: 3px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-left: 5px;
+    display: inline-block;
+}
+
+
+.product-card .card-body {
+    padding: 15px;
+}
+
+
+.btn-outline-dark {
+    flex-grow: 1;
+    text-align: center;
+}
+
+
+
+.shop-section,
+.best-sellers-section,
+.new-arrivals-section {
+    background-color: #fcfcfc;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+
+.our-jewellery-section {
+    background: var(--gradient-light);
+    color: var(--dark-text);
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.our-jewellery-section img {
+    border: 8px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 15px 30px var(--shadow-medium);
+    max-width: 100%;
+    height: auto;
+}
+
+
+.testimonials-section {
+    background-color: #f0f0f0;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.testimonials-section .carousel-item {
+    padding: 40px 20px;
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow-light);
+    margin: 0 auto;
+
+}
+
+.testimonial-img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border: 5px solid var(--primary-color);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.testimonials-section .lead {
+    font-size: 1.3rem;
+    margin-bottom: 25px;
+    color: #555;
+    font-style: italic;
+}
+
+.testimonials-section h5 {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+}
+
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    padding: 15px;
+    opacity: 0.8;
+    transition: opacity 0.3s ease;
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+    opacity: 1;
+}
+
+
+.track-order-section {
+    background: linear-gradient(to bottom, #fcfcfc, #E8B4B830);
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.track-order-section .form-control {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+
+
+.shark-tank-section {
+    background-color: #f0f0f0;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.shark-tank-section img {
+    max-width: 100%;
+    height: auto;
+}
+
+
+
+.contact-section {
+    background: linear-gradient(to bottom, #fcfcfc, #E8B4B830);
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.contact-info,
+.contact-form {
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 15px 40px var(--shadow-medium);
+    background-color: white;
+}
+
+.contact-info ul {
+    list-style: none;
+    padding: 0;
+}
+
+.contact-info ul li {
+    margin-bottom: 10px;
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.contact-info ul li i {
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    width: 25px;
+}
+
+.contact-form .form-control {
+    border-color: #ddd;
+    box-shadow: none;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form .form-control:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.25rem rgba(232, 180, 184, 0.25);
+}
+
+
+/* .footer-section {
+    background-color: #222;
+    color: white;
+    padding: 40px 0;
+    font-size: 0.9rem;
+}
+
+.footer-section .list-inline-item a {
+    font-size: 1.8rem;
+    margin: 0 12px;
+    transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.footer-section .list-inline-item a:hover {
+    color: var(--primary-color);
+    transform: translateY(-5px) scale(1.1);
+} */
+
+/* --- Footer --- */
+.site-footer {
+  background-color: #4a4a4a;
+     color: #f8f8f8; 
+    /* color: #E8B4B8; */
+    padding: 50px 20px 20px;
+    font-size: 0.95em;
+
+}
+ h3{
+    color: #e8b4b8;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+.site-footer .footer-content {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    flex-wrap: wrap;
+}
+
+.site-footer .footer-logo {
+     font-family: 'Playfair Display', serif; 
+    font-size: 2em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    flex-basis: 100%; /* Take full width on smaller screens */
+    text-align: center;
+    margin-bottom: 20px;
+     font-size: 28px;
+      font-weight: bold;
+      color: #E8B4B8;
+}
+
+/* .site-footer h3 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: var(--secondary-rose-gold);
+} */
+
+.site-footer ul li {
+    margin-bottom: 8px;
+    list-style: none;
+   
+    
+}
+
+.site-footer ul li a {
+    transition: color 0.3s ease;
+    color: #f8f8f8;
+    text-decoration: none;
+}
+
+.site-footer ul li a:hover {
+    color: #ffd700;
+}
+
+.footer-social a {
+    margin-right: 15px;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+    color: #f8f8f8;
+}
+
+.footer-social a:hover {
+    color: #ffd700;
+}
+
+.site-footer .footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.85em;
+    color: #aaa;
+}
+
+
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 6px;
+    background: var(--primary-color);
+    width: 0%;
+    z-index: 1030;
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+}
+.chatbot-icon {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    background-color: #e6c200;
+    color: var(--text-dark);
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.8em;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    cursor: pointer;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    z-index: 1000;
+}
+
+.chatbot-icon:hover {
+    transform: scale(1.1);
+    background-color: #e6c200;
+}
+
+
+@media (max-width: 991.98px) {
+    .navbar-collapse {
+        background-color: rgba(255, 255, 255, 0.98);
+        border-radius: 10px;
+        margin-top: 10px;
+        padding: 15px;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-nav .nav-link {
+        margin: 5px 0;
+        text-align: center;
+        padding: 10px 0;
+    }
+
+    .navbar-nav .nav-link::after {
+        left: 0;
+        transform: none;
+        width: 100%;
+        bottom: 0;
+    }
+
+    .display-1 {
+        font-size: clamp(2.5rem, 10vw, 4rem);
+    }
+
+    .display-4 {
+        font-size: clamp(1.8rem, 7vw, 2.8rem);
+    }
+
+    .product-card img {
+        height: 250px;
+    }
+
+    .testimonial-img {
+        width: 120px;
+        height: 120px;
+    }
+
+    section {
+        padding: 70px 0;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .home-banner-section h1 {
+        font-size: clamp(2rem, 12vw, 3.5rem);
+    }
+
+    .home-banner-section p.lead {
+        font-size: 1rem;
+    }
+
+    .product-card img {
+        height: 200px;
+    }
+
+    .product-card .card-body {
+        padding: 10px;
+    }
+
+    .category-circle {
+        width: 100px;
+        height: 100px;
+        border-width: 4px;
+    }
+
+    .category-item h5 {
+        font-size: 1.1rem;
+    }
+
+    .testimonial-img {
+        width: 100px;
+        height: 100px;
+    }
+
+    .contact-info,
+    .contact-form {
+        padding: 30px;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    .wishlist-btn .discount-percent {
+        font-size: 0.65rem;
+        padding: 1px 4px;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .home-banner-section h1 {
+        font-size: clamp(1.8rem, 14vw, 3rem);
+    }
+
+    .home-banner-section p.lead {
+        font-size: 0.9rem;
+    }
+
+    .btn-primary,
+    .btn-outline-dark {
+        padding: 10px 20px;
+        font-size: 0.9rem;
+    }
+
+    .quick-view-btn {
+        bottom: 10px;
+        padding: 8px 15px;
+    }
+
+    .product-card .card-body {
+        padding: 8px;
+    }
+}
+
+.contact-info.bg-white {
+    height: 475px !important;
+}
+
+
+
+/*  */
+
+/* Carousel Banner Styles */
+.home-carousel-section {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    padding-bottom: 0px !important;
+        margin-top: 20px !important;
+}
+
+#homeCarousel,
+#homeCarousel .carousel-inner,
+#homeCarousel .carousel-item {
+    height: 100%;
+    width: 100%;
+}
+
+.carousel-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+.carousel-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to top, rgb(86 58 62), rgb(0 0 0 / 30%));
+    z-index: 0;
+}
+
+#homeCarousel .carousel-caption {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.hero-content {
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+/* Carousel Indicators */
+#homeCarousel .carousel-indicators {
+    bottom: 30px;
+    z-index: 2;
+}
+
+#homeCarousel .carousel-indicators button {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    margin: 0 8px;
+    background-color: rgba(255,255,255,0.5);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+#homeCarousel .carousel-indicators .active {
+    background-color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+/* Carousel Controls */
+#homeCarousel .carousel-control-prev,
+#homeCarousel .carousel-control-next {
+    width: 8%;
+    opacity: 0.8;
+    z-index: 2;
+    transition: opacity 0.3s ease;
+}
+
+#homeCarousel .carousel-control-prev:hover,
+#homeCarousel .carousel-control-next:hover {
+    opacity: 1;
+}
+
+#homeCarousel .carousel-control-prev-icon,
+#homeCarousel .carousel-control-next-icon {
+    width: 3rem;
+    height: 3rem;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    background-size: 60%;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+#homeCarousel .carousel-control-prev-icon:hover,
+#homeCarousel .carousel-control-next-icon:hover {
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* Fade Transition */
+.carousel-fade .carousel-item {
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.carousel-fade .carousel-item.active {
+    opacity: 1;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .hero-content h1.display-1 {
+        font-size: 2.5rem !important;
+    }
+    
+    .hero-content .lead {
+        font-size: 1rem !important;
+    }
+    
+    #homeCarousel .carousel-indicators {
+        bottom: 20px;
+    }
+}
+
+/* Gradient Overlay for Carousel */
+.carousel-bg::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to bottom, 
+        rgba(0, 0, 0, 0.2) 0%, 
+        rgba(0, 0, 0, 0.5) 50%, 
+        rgba(0, 0, 0, 0.7) 100%
+    );
+    z-index: 1;
+}
+
+/* Adjust the existing overlay to blend with the gradient */
+.carousel-bg::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to top, 
+        rgba(86, 58, 62, 0.8) 0%, 
+        rgba(0, 0, 0, 0.3) 100%
+    );
+    z-index: 1;
+    mix-blend-mode: multiply;
+}
+
+/* Ensure content stays above gradients */
+#homeCarousel .carousel-caption {
+    z-index: 2;
+}
+
+/* Darken indicator dots for better visibility */
+#homeCarousel .carousel-indicators button {
+    background-color: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+#homeCarousel .carousel-indicators .active {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+/* Enhance text visibility */
+.hero-content h1 {
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-content .lead {
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* --- Footer --- */
+.site-footer {
+    background-color: var(--text-dark);
+    color: var(--text-light);
+    padding: 50px 20px 20px;
+    font-size: 0.95em;
+}
+
+.site-footer .footer-content {
+    display: flex;
+    justify-content: space-around;
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto 30px;
+    flex-wrap: wrap;
+}
+
+.site-footer .footer-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 2em;
+    font-weight: 700;
+    letter-spacing: 1px;
+    flex-basis: 100%; /* Take full width on smaller screens */
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.site-footer h3 {
+    font-size: 1.2em;
+    margin-bottom: 15px;
+    color: var(--secondary-rose-gold);
+}
+
+.site-footer ul li {
+    margin-bottom: 8px;
+}
+
+.site-footer ul li a {
+    transition: color 0.3s ease;
+}
+
+.site-footer ul li a:hover {
+    color: var(--accent-gold);
+}
+
+.footer-social a {
+    margin-right: 15px;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+}
+
+.footer-social a:hover {
+    color: var(--accent-gold);
+}
+
+.site-footer .footer-bottom {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    font-size: 0.85em;
+    color: #aaa;
+}
+
+ .user-dropdown {
+      position: relative;
+      display: inline-block;
+    }
+
+    /* Button/Icon */
+    .user-icon {
+      font-size: 20px;
+      cursor: pointer;
+      padding: 8px;
+      border-radius: 50%;
+      transition: background 0.3s;
+      background: #f8f8f8;
+    }
+
+    .user-icon:hover {
+      background-color: #e4e4e4;
+    }
+
+    /* Dropdown menu */
+    .dropdown-menu {
+      display: none;
+      position: absolute;
+      top: 100%; /* Below the icon */
+      right: 0;
+      background-color: white;
+      min-width: 160px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+      border-radius: 6px;
+      z-index: 100;
+    }
+
+    .dropdown-menu a {
+      color: #333;
+      padding: 10px 15px;
+      text-decoration: none;
+      display: block;
+      font-size: 14px;
+    }
+
+    .dropdown-menu a:hover {
+      background-color: #f2f2f2;
+    }
+
+    /* Show dropdown on hover of whole container */
+    .user-dropdown:hover .dropdown-menu {
+      display: block;
+    }
+    </style>
+</head>
+<body>
+   
+
+    <script>
+        function toggleDropdown(e) {
+    e.preventDefault();
+    const dropdown = e.target.closest('.dropdown');
+    dropdown.querySelector('.dropdown-content').classList.toggle('show');
+  }
+
+  // Close dropdown if clicked outside
+  window.onclick = function(e) {
+    if (!e.target.matches('.dropdown > a') && !e.target.closest('.dropdown-content')) {
+      const dropdowns = document.querySelectorAll('.dropdown-content');
+      dropdowns.forEach(dropdown => {
+        dropdown.classList.remove('show');
+      });
+    }
+  }
+
+  function toggleSearchPanel() {
+    document.getElementById("search-panel").classList.toggle("active");
+  }
+
+
+
+  
+    </script>
+
+    
+   <!-- Top Navbar -->
+<div class="navbar">
+  <div class="left">
+    <i class="fa-solid fa-magnifying-glass search-icon" onclick="toggleSearchPanel()"></i>
+  </div>
+  
+  <div class="center">
+    <div class="logo">Auranest</div>
+  </div>
+  <div class="user-dropdown">
+    <i class="fa-solid fa-user user-icon"></i>
+    <div class="dropdown-menu">
+      <a href="login.php">Login</a>
+      <a href="registration.php">Sign Up</a>
+      <a href="my_profile.php">My Profile</a>
+    </div>
+  </div>
+  <div class="right">
+   <a href="cart.php"> <i class="fa-solid fa-cart-shopping"></i></a>
+  </div>
+</div>
+
+<div id="search-panel" class="search-panel">
+  <span class="close-btn" onclick="toggleSearchPanel()">×</span>
+  <input type="text" placeholder="Search Products...">
+  <button type="submit">Search</button>
+</div>
+
+<!-- Pages under logo -->
+<div class="menu">
+  <a href="index.php">Home</a>
+  <div class="dropdown">
+    <a href="#" onclick="toggleDropdown(event)">Categories <i class="fa-solid fa-caret-down fa-2xs"></i></a>
+    <div class="dropdown-content">
+      <a href="jewllery.html">Jeweleries</a>
+      <a href="beauty.html">Beauty Essentials</a>
+    </div>
+  </div>
+  <a href="blog.html">About Us</a>
+  <a href="about.html">Blog</a>
+  <a href="#contact">Contact Us</a>
+</div>
+
+    <main>
+
+<section id="home" class="home-carousel-section">
+    <div id="homeCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+        <!-- Indicators -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#homeCarousel" data-bs-slide-to="2"></button>
+        </div>
+        
+        <!-- Slides -->
+        <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active vh-100">
+                <div class="carousel-bg" style="background-image: url('uploads/jewllery\ banner2.jpg');"></div>
+                <div class="carousel-caption d-flex align-items-center justify-content-center text-center h-100">
+                    <div class="container hero-content position-relative z-1">
+                         <h1 class="display-1 fw-bold text-white">Unleash Your Inner Glow</h1> 
+                        <p class="lead text-white-50 mt-4">Discover exquisite pieces that define elegance and beauty.</p>
+                        <a href="#shop" class="btn btn-primary btn-lg mt-5">Explore Our Collection</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="carousel-item vh-100">
+                <div class="carousel-bg" style="background-image: url('uploads/harper-sunday-b5NwJj4bVcg-unsplash.jpg');"></div>
+                <div class="carousel-caption d-flex align-items-center justify-content-center text-center h-100">
+                    <div class="container hero-content position-relative z-1">
+                        <h1 class="display-1 fw-bold text-white">Timeless Beauty</h1>
+                        <p class="lead text-white-50 mt-4">Enhance your natural charm.</p>
+                        <a href="#best-sellers" class="btn btn-primary btn-lg mt-5">View Best Sellers</a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="carousel-item vh-100">
+                <div class="carousel-bg" style="background-image: url('uploads/jewllery\ banner.jpg');"></div>
+                <div class="carousel-caption d-flex align-items-center justify-content-center text-center h-100">
+                    <div class="container hero-content position-relative z-1">
+                        <h1 class="display-1 fw-bold text-white">Luxury Redefined</h1>
+                        <p class="lead text-white-50 mt-4">Experience our premium collections.</p>
+                        <a href="#new-arrivals" class="btn btn-primary btn-lg mt-5">New Arrivals</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Controls -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#homeCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#homeCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+</section>
+
+
+
+        
+
+        <section id="shop" class="shop-section py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5 display-4">Shop Our Latest Collections</h2>
+                <div class="row g-4 product-cards-grid">
+                    <div class="col-md-6 col-lg-4">
+                        <div class="product-card card h-100 border-0 shadow-sm rounded-3">
+                            <img src="uploads/aydin-ghadakchi-lamor-1BBlGVr2_Yw-unsplash.jpg"
+                                class="card-img-top rounded-top-3" alt="Stunning Necklace Set">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Golden Grace set</h5>
+                                <p class="card-text text-muted">Rs. 3,500.00</p>
+                                <div class="rating mb-3">
+                                    <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+                                        class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+                                        class="fas fa-star-half-alt text-warning"></i>
+                                </div>
+                                <a href="#" class="btn btn-outline-dark">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="product-card card h-100 border-0 shadow-sm rounded-3">
+                            <img src="uploads/diego-castaneda-Byh8usLM0vk-unsplash.jpg"
+                                class="card-img-top rounded-top-3" alt="Elegant Earrings">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Graceful Glam Bangles</h5>
+                                <p class="card-text text-muted">Rs. 1,800.00</p>
+                                <div class="rating mb-3">
+                                    <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+                                        class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+                                        class="fas fa-star text-warning"></i>
+                                </div>
+                                <a href="#" class="btn btn-outline-dark">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="product-card card h-100 border-0 shadow-sm rounded-3">
+                            <img src="uploads/maria-nikolova-4qZNMGrqm0o-unsplash copy.jpg"
+                                class="card-img-top rounded-top-3" alt="Delicate Ring">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Eternal Glow Ring</h5>
+                                <p class="card-text text-muted">Rs. 1000.00</p>
+                                <div class="rating mb-3">
+                                    <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+                                        class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+                                        class="far fa-star text-warning"></i>
+                                </div>
+                                <a href="#" class="btn btn-outline-dark">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="product-card card h-100 border-0 shadow-sm rounded-3">
+                            <img src="uploads/Diamond Studded Necklace.avif"
+                                class="card-img-top rounded-top-3" alt="Cosmetic Set">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Gold Necklace</h5>
+                                <p class="card-text text-muted">Rs. 1,200.00</p>
+                                <div class="rating mb-3">
+                                    <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+                                        class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+                                        class="fas fa-star text-warning"></i>
+                                </div>
+                                <a href="#" class="btn btn-outline-dark">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="product-card card h-100 border-0 shadow-sm rounded-3">
+                            <img src="uploads/photo-1629224316810-9d8805b95e76.avif"
+                                class="card-img-top rounded-top-3" alt="Delicate Ring">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Crystal Shine Danglers</h5>
+                                <p class="card-text text-muted">Rs. 950.00</p>
+                                <div class="rating mb-3">
+                                    <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+                                        class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+                                        class="far fa-star text-warning"></i>
+                                </div>
+                                <a href="#" class="btn btn-outline-dark">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="product-card card h-100 border-0 shadow-sm rounded-3">
+                            <img src="uploads/WhatsApp Image 2025-07-16 at 2.52.19 AM (1).jpeg"
+                                class="card-img-top rounded-top-3" alt="Cosmetic Set">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Crystal Bloom Set</h5>
+                                <p class="card-text text-muted">Rs. 6,200.00</p>
+                                <div class="rating mb-3">
+                                    <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+                                        class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+                                        class="fas fa-star text-warning"></i>
+                                </div>
+                                <a href="#" class="btn btn-outline-dark">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="text-center mt-5">
+                    <a href="#" class="btn btn-primary btn-lg">View All Products</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="best-sellers" class="best-sellers-section py-5">
+            <div class="container">
+                <h2 class="text-center mb-5 display-4">Our Best Selling Products</h2>
+                <div class="row g-4 product-cards-grid">
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="product-card card h-100 border-0 shadow-sm rounded-3">
+                            <img src="uploads/premium_photo-1681276170538-092ed3578648.avif"
+                                class="card-img-top rounded-top-3" alt="Top Selling Item 1">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Necklace </h5>
+                                <p class="card-text text-muted">Rs. 1,500.00</p>
+                                <div class="rating mb-3">
+                                    <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+                                        class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+                                        class="fas fa-star text-warning"></i>
+                                </div>
+                                <a href="#" class="btn btn-outline-dark">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="product-card card h-100 border-0 shadow-sm rounded-3">
+                            <img src="uploads/WhatsApp Image 2025-07-18 at 4.44.38 PM.jpeg"
+                                class="card-img-top rounded-top-3" alt="Top Selling Item 2">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Silver Loop Chain</h5>
+                                <p class="card-text text-muted">Rs. 1,200.00</p>
+                                <div class="rating mb-3">
+                                    <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+                                        class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+                                        class="fas fa-star-half-alt text-warning"></i>
+                                </div>
+                                <a href="#" class="btn btn-outline-dark">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="product-card card h-100 border-0 shadow-sm rounded-3">
+                            <img src="uploads/WhatsApp Image 2025-07-18 at 4.42.43 PM copy.jpeg"
+                                class="card-img-top rounded-top-3" alt="Top Selling Item 2">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Handmade Bracelets</h5>
+                                <p class="card-text text-muted">Rs. 1,200.00</p>
+                                <div class="rating mb-3">
+                                    <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+                                        class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+                                        class="fas fa-star-half-alt text-warning"></i>
+                                </div>
+                                <a href="#" class="btn btn-outline-dark">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>      
+
+                </div>
+                <div class="text-center mt-5">
+                    <a href="#" class="btn btn-primary btn-lg">Discover More Bestsellers</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="new-arrivals" class="new-arrivals-section py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5 display-4">Our Cosmetics</h2>
+                <div class="row g-4 product-cards-grid">
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="product-card card h-100 border-0 shadow-sm rounded-3">
+                            <img src="uploads/WhatsApp Image 2025-07-18 at 4.36.19 PM.jpeg"
+                                class="card-img-top rounded-top-3" alt="New Arrival 1">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Gold Ring</h5>
+                                <p class="card-text text-muted">Rs. 1,200.00</p>
+                                <div class="rating mb-3">
+                                    <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+                                        class="fas fa-star text-warning"></i><i
+                                        class="fas fa-star-half-alt text-warning"></i><i
+                                        class="far fa-star text-warning"></i>
+                                </div>
+                                <a href="#" class="btn btn-outline-dark">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="product-card card h-100 border-0 shadow-sm rounded-3">
+                            <img src="uploads/WhatsApp Image 2025-07-18 at 4.35.14 PM.jpeg"
+                                class="card-img-top rounded-top-3" alt="New Arrival 2">
+                            <div class="card-body text-center">
+                                <h5 class="card-title"> Golden Necklace Set</h5>
+                                <p class="card-text text-muted">Rs. 2,100.00</p>
+                                <div class="rating mb-3">
+                                    <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+                                        class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+                                        class="fas fa-star text-warning"></i>
+                                </div>
+                                <a href="#" class="btn btn-outline-dark">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col-md-6 col-lg-4">
+                        <div class="product-card card h-100 border-0 shadow-sm rounded-3">
+                            <img src="uploads/WhatsApp Image 2025-07-18 at 4.47.02 PM.jpeg"
+                                class="card-img-top rounded-top-3" alt="New Arrival 2">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Silver Anklets</h5>
+                                <p class="card-text text-muted">Rs. 2,100.00</p>
+                                <div class="rating mb-3">
+                                    <i class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+                                        class="fas fa-star text-warning"></i><i class="fas fa-star text-warning"></i><i
+                                        class="fas fa-star text-warning"></i>
+                                </div>
+                                <a href="#" class="btn btn-outline-dark">Add to Cart</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="text-center mt-5">
+                    <a href="#" class="btn btn-primary btn-lg">Explore Jewellery</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="our-jewellery" class="our-jewellery-section py-5">
+            <div class="container">
+                <h2 class="text-center mb-5 display-4">Our Exquisite Jewellery Collection</h2>
+                <div class="row align-items-center g-5">
+                    <div class="col-lg-6">
+                        <img src="uploads/eric-fung-Z0GZrpwcc5Y-unsplash.jpg"
+                            alt="Our Jewellery" class="img-fluid rounded-3 shadow-lg">
+                    </div>
+                    <div class="col-lg-6">
+                        <h3 class="mb-4">Handcrafted Beauty for Every Occasion</h3>
+                        <p class="lead">
+                           At Auranest, our jewellery collection is a testament to timeless elegance and modern design.
+                            Each piece is meticulously crafted, blending traditional artistry with contemporary trends
+                            to offer you something truly unique.
+
+
+                        </p>
+                        <p>
+                            From delicate everyday wear to stunning statement pieces for special occasions, our range
+                            includes necklaces, earrings, bracelets, rings, and complete sets. We use high-quality
+                            imitation materials that mimic the brilliance of precious gems and metals, ensuring beauty
+                            without compromise.
+
+                        </p>
+                        <p>
+                            Discover the perfect adornment to complement your style or find that special gift that will
+                            be cherished forever.
+
+                        </p>
+                        <a href="" class="btn btn-primary btn-lg mt-3">View Jewellery Collection</a>
+                    </div>
+                </div>
+                <div class="row mt-5 pt-5 text-center jewellery-highlights">
+                    <div class="col-md-4">
+                        <div class="p-4 rounded-3 shadow-sm h-100 bg-white">
+                            <i class="fas fa-gem fa-3x text-primary mb-3" style="color: #e3b1b7 !important;"></i>
+                            <h4 class="mb-3">Elegant Necklaces</h4>
+                            <p>Shine with sophistication — explore our handpicked collection of elegant necklaces that add timeless charm to your every look.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-4 rounded-3 shadow-sm h-100 bg-white">
+                            <i class="fas fa-palette fa-3x text-primary mb-3" style="color: #e3b1b7 !important;"></i>
+                            <h4 class="mb-3">Trendy Rings & Bracelets</h4>
+                            <p>From dainty bands to bold cuffs — find rings and bracelets that blend tradition with modern flair.
+
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="p-4 rounded-3 shadow-sm h-100 bg-white">
+                            <i class="fas fa-hand-holding-heart fa-3x text-primary mb-3" style="color: #e3b1b7 !important;"></i>
+                            <h4 class="mb-3">Tools & Fragrance Touch</h4>
+                            <p>From soft brush sets to signature perfumes, style meets self-care.
+Complete your look with precision tools and unforgettable scents.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="client-reviews" class="testimonials-section py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5 display-4">What Our Clients Say</h2>
+                <div id="testimonialCarousel" class="carousel slide" data-bs-ride="carousel">
+                    <div class="carousel-inner">
+
+                        <div class="carousel-item active">
+                            <div class="row justify-content-center text-center">
+                                <div class="col-md-8">
+                                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=1776&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                        class="rounded-circle mb-3 shadow-sm testimonial-img" alt="Mina Waqas">
+                                    <p class="lead fst-italic">"Auranest's stunning jewellery makes me feel confident
+                                        and glamorous for any occasion. The quality is exceptional and truly captures
+                                        hearts!"
+</p>
+                                    <h5 class="fw-bold">- Mina Waqas</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="row justify-content-center text-center">
+                                <div class="col-md-8">
+                                    <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&w=1780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                        class="rounded-circle mb-3 shadow-sm testimonial-img" alt="Nida Yasir">
+                                    <p class="lead fst-italic">"Love Auranest's unique designs and high-quality pieces
+                                        at an affordable price! My go-to for all my jewellery needs."
+</p>
+                                    <h5 class="fw-bold">- Mehak K</h5>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-item">
+                            <div class="row justify-content-center text-center">
+                                <div class="col-md-8">
+                                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?q=80&w=1770&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                        class="rounded-circle mb-3 shadow-sm testimonial-img" alt="Ahmed Khan">
+                                    <p class="lead fst-italic">"Fast shipping and beautiful packaging! Every piece from
+                                        Auranest is a delight. Highly recommended for quality and style."</p>
+                                    <h5 class="fw-bold">- Ahmed Khan</h5>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel"
+                        data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel"
+                        data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="contact" class="contact-section py-5">
+            <div class="container">
+                <h2 class="text-center mb-5 display-4">Get in Touch</h2>
+                <div class="row g-4 align-items-center">
+                    <div class="col-md-6">
+                        <div class="contact-info bg-white p-4 rounded-3 shadow-sm">
+                            <h4 class="mb-3">Visit Our Showroom</h4>
+                            <p><i class="fas fa-map-marker-alt me-2 text-primary" style="color: #e3b1b7 !important;"></i> LuckyOne Outlet</p>
+                            <p>Shop# SF-070, 2nd Floor LuckyOne Mall Karachi</p>
+                            <p class="mt-3 fw-bold">Timings:</p>
+                            <ul>
+                                <li><i class="fas fa-clock me-2"></i> Sun-Thur: 8:00 AM - 11:00 PM</li>
+                                <li><i class="fas fa-clock me-2"></i> Fri: 03:00 PM - 11:59 PM</li>
+                                <li><i class="fas fa-clock me-2"></i> Sat: 8:00 AM - 11:59 PM</li>
+                            </ul>
+                            <a href="https://maps.app.goo.gl/YOUR_GOOGLE_MAPS_LINK" target="_blank"
+                                class="btn btn-primary mt-3">Get Directions</a>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="contact-form bg-white p-4 rounded-3 shadow-sm">
+                            <h4 class="mb-3">Send Us a Message</h4>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Name</label>
+                                    <input type="text" class="form-control rounded-pill" id="name" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email</label>
+                                    <input type="email" class="form-control rounded-pill" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="message" class="form-label">Message</label>
+                                    <textarea class="form-control rounded-3" id="message" rows="4" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary rounded-pill">Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- <footer id="footer" class="footer-section py-4 text-center text-white-50">
+        <div class="container">
+            <p>© 2025 Auranest. All rights reserved.</p>
+            <ul class="list-inline mt-3">
+                <li class="list-inline-item"><a href="#" class="text-white-50"><i class="fab fa-facebook-f"></i></a>
+                </li>
+                <li class="list-inline-item"><a href="#" class="text-white-50"><i class="fab fa-instagram"></i></a></li>
+                <li class="list-inline-item"><a href="#" class="text-white-50"><i class="fab fa-twitter"></i></a></li>
+                <li class="list-inline-item"><a href="#" class="text-white-50"><i class="fab fa-pinterest"></i></a></li>
+            </ul>
+        </div>
+    </footer> -->
+
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-logo">AURANEST</div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Shop All</a></li>
+                    <li><a href="#">FAQs</a></li>
+                    <li><a href="#">Shipping & Returns</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                </ul>
+            </div>
+            <div class="footer-social">
+                <h3>Follow Us</h3>
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-tiktok"></i></a>
+                <a href="#"><i class="fab fa-pinterest"></i></a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Auranest. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div id="scroll-progress"></div>
+    <div class="chatbot-icon">
+        <i class="fas fa-comments"></i>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/ScrollTrigger.min.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
